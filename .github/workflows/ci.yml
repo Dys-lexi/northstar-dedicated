@@ -24,10 +24,8 @@ jobs:
 
       - id: img
         name: Generate image name
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
-          name="$(echo "${DOCKER_USERNAME}/northstar-dedicated-dev" | tr '[:upper:]' '[:lower:]')"
+          name="$(echo "dyslexi/northstar-dedicated-dev" | tr '[:upper:]' '[:lower:]')"
           echo "${name}"
           echo "name=${name}" >> $GITHUB_OUTPUT
 
@@ -79,7 +77,7 @@ jobs:
 
     environment:
       name: server-docker
-      url: https://hub.docker.com/r/${{ secrets.DOCKER_USERNAME }}/northstar-dedicated
+      url: https://hub.docker.com/r/dyslexi/northstar-dedicated
 
     concurrency:
       group: server-docker-stable
@@ -94,10 +92,8 @@ jobs:
 
       - id: img
         name: Generate image name
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
-          name="$(echo "${DOCKER_USERNAME}/northstar-dedicated" | tr '[:upper:]' '[:lower:]')"
+          name="$(echo "dyslexi/northstar-dedicated" | tr '[:upper:]' '[:lower:]')"
           echo "${name}"
           echo "name=${name}" >> $GITHUB_OUTPUT
 
